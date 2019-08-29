@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.aexp.nodes.graphql</groupId>
+        <groupId>com.scoffable</groupId>
         <artifactId>parent</artifactId>
-        <version>0.5.0</version>
+        <version>0.5.0.scoff1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -16,6 +16,14 @@
         <jackson.annotations.version>2.9.4</jackson.annotations.version>
         <jackson.databind.version>2.9.7</jackson.databind.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>scoffable-releases</name>
+            <url>https://scoffable.jfrog.io/scoffable/libs-release-local</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -56,6 +64,21 @@
                 </exclusion>
             </exclusions>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.11.620</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
     </dependencies>
 
@@ -130,6 +153,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
