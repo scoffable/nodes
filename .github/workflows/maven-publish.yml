@@ -24,10 +24,9 @@ jobs:
         with:
           repositories: '[{ "id": "central", "url": "https://repo1.maven.org/maven2" }, { "id": "jcenter", "url": "https://jcenter.bintray.com" }, { "id": "github", "url": "https://maven.pkg.github.com/scoffable/*" }]'
           servers: '[{ "id": "github", "username": "${env.USERNAME}", "password": "${env.PASSWORD}" }]'
-      - name: Go to Nodes Dir
-        run: cd nodes
       - name: Maven package
-        run: mvn package
+        working-directory: ./nodes
+        run: mvn clean package
         env:
           USERNAME: ${{ secrets.AUTOMATION_REPO_USERNAME }}
           PASSWORD: ${{ secrets.AUTOMATION_REPO_ACCESS_TOKEN }}
