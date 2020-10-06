@@ -26,7 +26,7 @@ jobs:
           servers: '[{ "id": "github", "username": "${env.USERNAME}", "password": "${env.PASSWORD}" }]'
 
       - name: Maven package
-        run: mvn package
+        run: cd nodes; mvn package
         env:
           USERNAME: ${{ secrets.AUTOMATION_REPO_USERNAME }}
           PASSWORD: ${{ secrets.AUTOMATION_REPO_ACCESS_TOKEN }}
@@ -36,12 +36,3 @@ jobs:
         env:
           USERNAME: ${{ github.actor }}
           PASSWORD: ${{ github.token }}
-
-      - uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: repo,message,author # selectable (default: repo,message)
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-        if: failure()
