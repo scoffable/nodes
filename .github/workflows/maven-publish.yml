@@ -26,7 +26,7 @@ jobs:
           servers: '[{ "id": "github", "username": "${env.USERNAME}", "password": "${env.PASSWORD}" }]'
       - name: Maven package
         working-directory: ./nodes
-        run: mvn package
+        run: mvn clean package
         env:
           USERNAME: ${{ secrets.AUTOMATION_REPO_USERNAME }}
           PASSWORD: ${{ secrets.AUTOMATION_REPO_ACCESS_TOKEN }}
