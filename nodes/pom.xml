@@ -11,14 +11,6 @@
         <jackson.databind.version>2.9.7</jackson.databind.version>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>central</id>
-            <name>scoffable-releases</name>
-            <url>https://scoffable.jfrog.io/scoffable/libs-release-local</url>
-        </repository>
-    </distributionManagement>
-
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
