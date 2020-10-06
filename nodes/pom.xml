@@ -18,6 +18,14 @@
         <jackson.databind.version>2.9.7</jackson.databind.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Scoffable Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/scoffable/${artifactId}</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
